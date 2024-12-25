@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KloterController;
+use App\Http\Controllers\kontenController;
+use App\Http\Controllers\TableController;
 use App\Http\Controllers\TugasController;
 use App\Http\Controllers\UserManajementController;
 use Illuminate\Support\Facades\Route;
@@ -43,5 +45,14 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/tugas/{id}', [TugasController::class, 'index'])->name('tugas.index');
     Route::get('/tugas/{id}/show', [TugasController::class, 'show'])->name('tugas.show');
+
+    Route::get('/tugaskonten', [kontenController::class, 'index'])->name('tugaskonten.index');
+    Route::get('/tugaskonten/create', [kontenController::class, 'create'])->name('tugaskonten.create');
+    Route::post('/tugaskonten', [kontenController::class, 'store'])->name('tugaskonten.store');
+
+    Route::get('/userkonten/{id}', [kontenController::class, 'userkonten'])->name('tugaskonten.userkonten');
+    Route::get('/detailuserkonten/{id}', [kontenController::class, 'detailuserkonten'])->name('tugaskonten.detailuserkonten');
+    
+    Route::get('/datatable/{id}', [TableController::class, 'index'])->name('datatable.index');
 });
 

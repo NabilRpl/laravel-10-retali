@@ -20,10 +20,12 @@
             <td>{{ $user->id }}</td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
-            <td>Admin</td>
+            <td>Petugas</td>
             <td>
                 <a href="{{ route('userManajement.edit', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
                 <a href="{{ route('kloter.index', $user->id) }}" class="btn btn-success btn-sm">Kloter</a>
+                <a href="{{ route('tugaskonten.userkonten', $user->id) }}" class="btn btn-primary btn-sm">Konten</a>
+                <a href="{{ route('datatable.index', $user->id) }}" class="btn btn-primary btn-sm">Data Jamaah</a>
                 <button class="btn btn-danger btn-sm">Hapus</button>
             </td>
         </tr>

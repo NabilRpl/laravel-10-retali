@@ -3,6 +3,8 @@
 use App\Http\Controllers\ApiAgendaController;
 use App\Http\Controllers\ApiAuthController;
 use App\Http\Controllers\ApiKloterController;
+use App\Http\Controllers\ApiKontenController;
+use App\Http\Controllers\ApiTableController;
 use App\Http\Controllers\ApiTugasController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +34,16 @@ Route::middleware(['auth:api'])->group(function () {
     Route::get('/kloter', [ApiKloterController::class, 'index']);
 
     Route::post('/tugas', [ApiTugasController::class, 'store']);
+
+    Route::post('/userkonten', [ApiKontenController::class, 'storeUserKonten']);
+    
+    Route::post('/datatable', [ApiTableController::class, 'store']);
+    Route::get('/getalldatatable', [ApiTableController::class, 'allDataTable']);
 });
 
+Route::get('/tugaskonten', [ApiKontenController::class, 'allKonten']);
+Route::get('/tugaskonten/{id}', [ApiKontenController::class, 'detailKonten']);
+
+
 Route::get('/agenda', [ApiAgendaController::class, 'index']);
+

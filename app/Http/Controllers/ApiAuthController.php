@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
@@ -13,11 +14,16 @@ class ApiAuthController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
+        Log::info('Login attempt: ' . $credentials['email'] . ' with password ' . $credentials['password']);
+        
+
         try {
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json(['error' => 'Email atau Password Anda salah'], 401);
             }
         } catch (JWTException $e) {
+            Log::error('Error creating token: ' . $e->getMessage());
+            
             return response()->json(['error' => 'Could not create token'], 500);
         }
 

@@ -12,7 +12,8 @@
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Manajemen User</a>
+                <a href="{{ route('userManajement.index') }}" class="list-group-item list-group-item-action bg-light">Manajemen User</a>
+                <a href="{{ route('tugaskonten.index') }}" class="list-group-item list-group-item-action bg-light">Tugas Konten</a>
             </div>
         </div>
 

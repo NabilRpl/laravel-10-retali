@@ -18,8 +18,9 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
 
+
         if (auth()->attempt($request->only('email', 'password'))) {
-            return redirect()->redirect('/user');
+            return redirect('/user');
         }
 
         return back()->with('error', 'Email atau Password Anda salah');
