@@ -33,14 +33,14 @@ class kontenController extends Controller
     }
 
     public function userkonten($id) {
-        $userkonten = \App\Models\userkonten::with('kontentugas')->where('tourguide_id', $id)->get();
+        $userkonten = \App\Models\UserKonten::with('kontentugas')->where('tourguide_id', $id)->get();
 
         // return response()->json($userkonten);
         return view('tugaskonten.kontendetailuser', ['userkontens' => $userkonten]);
     }
 
     public function detailuserkonten($id) {
-        $userkonten = \App\Models\userkonten::with('kontentugas')->where('id', $id)->firstOrFail();
+        $userkonten = \App\Models\UserKonten::with('kontentugas')->where('id', $id)->firstOrFail();
         
         // return response()->json($userkonten);
         return view('tugaskonten.detailuserkonten', ['detailkonten' => $userkonten]);
