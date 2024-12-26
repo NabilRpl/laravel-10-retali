@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [ApiAuthController::class, 'login']);
 
-Route::middleware(['auth:api'])->group(function () {
+Route::middleware(['authApi'])->group(function () {
     Route::post('/logout', [ApiAuthController::class, 'logout']);
 
     Route::get('/user', [ApiAuthController::class, 'getuser']);
