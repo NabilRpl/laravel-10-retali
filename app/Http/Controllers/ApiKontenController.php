@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\konten;
-use App\Models\userkonten;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -11,12 +9,12 @@ use Illuminate\Support\Facades\Validator;
 class ApiKontenController extends Controller
 {
     public function allKonten() {
-        $konten = konten::all();
+        $konten = \App\Models\Konten::all();
         return response()->json($konten);
     }
 
     public function detailKonten($id) {
-        $konten = konten::find($id);
+        $konten = \App\Models\Konten::find($id);
 
         return response()->json($konten);
     }
@@ -38,7 +36,7 @@ class ApiKontenController extends Controller
             return response()->json(['error' => $validator->errors()], 422);
         }
 
-        $konten = konten::find($request->tugaskonten_id);
+        $konten = \App\Models\Konten::find($request->tugaskonten_id);
 
         if (!$konten) {
             // Log::info('Konten not found', ['tugaskonten_id' => $request->tugaskonten_id]);
@@ -62,7 +60,7 @@ class ApiKontenController extends Controller
         }
 
         // Simpan data ke database
-        $userkonten = userkonten::create([
+        $userkonten = \App\Models\Userkonten::create([
             'tourguide_id' => $auth->id, // Sesuaikan dengan ID user
             'tugaskonten_id' => $request->tugaskonten_id,
             'foto' => json_encode($fotoPaths), // Simpan sebagai JSON
