@@ -1,7 +1,7 @@
 @extends('component.layout')
 
 @section('content')
-<h1 class="mt-4">Tambah User</h1>
+<h1 class="mt-4">Tambah Petugas</h1>
 <form action="{{ route('userManajement.store') }}" method="POST">
     @csrf
     <div class="form-group">
@@ -18,7 +18,18 @@
     </div>
     <div class="form-group">
         <label for="location">Location</label>
-        <input type="location" class="form-control" id="location" name="location" value="{{ old('location') }}">
+        <input type="text" class="form-control" id="location" name="location" value="{{ old('location') }}">
+    </div>
+    <div class="form-group">
+        <label for="group_id">Nama Kelompok</label>
+        <select class="form-control" id="group_id" name="group_id">
+            <option value="">Pilih Kelompok</option>
+            @foreach ($groups as $group)
+                <option value="{{ $group->id }}" {{ old('group_id') == $group->id ? 'selected' : '' }}>
+                    {{ $group->name }}
+                </option>
+            @endforeach
+        </select>
     </div>
     <div class="form-group">
         <label for="password">Password</label>
