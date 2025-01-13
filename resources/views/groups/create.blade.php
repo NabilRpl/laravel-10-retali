@@ -2,6 +2,7 @@
 
 @section('content')
 <h1 class="mt-4">Buat Kelompok Baru</h1>
+<a href="{{ route('groups.index') }}" class="btn btn-primary mb-3">Kembali</a>
 <form action="{{ route('groups.store') }}" method="POST">
     @csrf
     <div class="form-group">

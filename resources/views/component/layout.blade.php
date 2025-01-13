@@ -85,7 +85,7 @@
             <div class="list-group list-group-flush">
                 <!-- Logo -->
                 <div class="text-center my-3">
-                    <img src="assets/logoretali.png" alt="Logo" class="img-fluid" style="max-width: 150px;">
+                    <img src="{{ asset('assets/logoretali.jpg') }}" alt="Logo" class="img-fluid" style="max-width: 80px;">
                 </div>
                 <a href="{{ route('user.dashboard') }}" class="list-group-item list-group-item-action">
                     <i class="fas fa-tachometer-alt"></i> Dashboard
@@ -110,7 +110,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('user.dashboard')}}">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Profile</a>

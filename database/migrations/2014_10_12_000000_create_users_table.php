@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone');
             $table->string('location');
-            $table->enum('role', ['admin', 'tourguide'])->default('tourguide'); 
+            $table->string('group_id')->nullable();
+            $table->enum('role', ['admin', 'tourguide'])->default('tourguide');
             $table->rememberToken();
             $table->timestamps();
         });

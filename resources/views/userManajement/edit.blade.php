@@ -2,6 +2,7 @@
 
 @section('content')
 <h1 class="mt-4">Tambah Petugas</h1>
+<a href="{{ route('userManajement.index') }}" class="btn btn-primary mb-3">Kembali</a>
 <form action="{{ route('userManajement.update', $user->id) }}" method="POST">
     @method('put')
     @csrf

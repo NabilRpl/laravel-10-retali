@@ -1,7 +1,7 @@
 @extends('component.layout')
 
 @section('content')
-<h1 class="mt-4">Tambah User</h1>
+<h1 class="mt-4">Tambah Tugas Konten</h1>
 <form action="{{ route('tugaskonten.store') }}" method="POST">
     @csrf
     <div class="form-group">

@@ -27,7 +27,6 @@
                             <a href="{{ route('kloter.index', $user->id) }}" class="btn btn-success btn-sm mb-2 mb-md-0 mr-md-2">Kloter</a>
                             <a href="{{ route('tugaskonten.userkonten', $user->id) }}" class="btn btn-primary btn-sm mb-2 mb-md-0 mr-md-2">Konten</a>
                             <a href="{{ route('datatable.index', $user->id) }}" class="btn btn-primary btn-sm mb-2 mb-md-0 mr-md-2">Data Jamaah</a>
-                            <a href="{{ route('userManajement.remind', $user->id) }}" class="btn btn-info btn-sm mb-2 mb-md-0 mr-md-2">Kirim Notifikasi</a>
                             <form action="{{ route('userManajement.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?');">
                                 @csrf
                                 @method('DELETE')

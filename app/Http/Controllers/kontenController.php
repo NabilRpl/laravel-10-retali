@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class kontenController extends Controller
 {
@@ -40,9 +41,27 @@ class kontenController extends Controller
     }
 
     public function detailuserkonten($id) {
-        $userkonten = \App\Models\Userkonten::with('kontentugas')->where('id', $id)->firstOrFail();
-        
+        $userkonten = userkonten::with('kontentugas')->where('id', $id)->firstOrFail();
+
         // return response()->json($userkonten);
         return view('tugaskonten.detailuserkonten', ['detailkonten' => $userkonten]);
     }
+
+    public function deleteFoto($foto)
+{
+    $path = storage_path('app/public/' . $foto);
+    if (File::exists($path)) {
+        File::delete($path);
+    }
+    return redirect('konten.deleteFoto')->with('success', 'Foto berhasil dihapus');
+}
+
+public function deleteVideo($video)
+{
+    $path = storage_path('app/public/' . $video);
+    if (File::exists($path)) {
+        File::delete($path);
+    }
+    return redirect('konten.deleteVideo')->with('success', 'Video berhasil dihapus');
+}
 }

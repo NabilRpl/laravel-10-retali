@@ -1,7 +1,7 @@
 @extends('component.layout')
 @section('content')
 <h1 class="mt-4">Tugas</h1>
-<a href="{{ route('userManajement.index') }}" class="btn btn-primary mb-3">kembali</a>
+<a href="{{ route('userManajement.index') }}" class="btn btn-primary mb-3">Kembali</a>
 
 <!-- Tabel Manajemen User -->
 <table class="table table-bordered">

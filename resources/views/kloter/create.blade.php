@@ -9,7 +9,7 @@
         <input type="text" class="form-control" id="name" name="nama" value="{{ old('name') }}">
     </div>
     <div class="form-group">
-        <label for="tanggal">tanggal</label>
+        <label for="tanggal">Tanggal</label>
         <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{ old('tanggal') }}">
     </div>
     @if ($errors->any())
