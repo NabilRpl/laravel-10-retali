@@ -15,7 +15,7 @@ class ApiAuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         Log::info('Login attempt: ' . $credentials['email'] . ' with password ' . $credentials['password']);
-        
+
 
         try {
             if (!$token = JWTAuth::attempt($credentials)) {
@@ -23,7 +23,7 @@ class ApiAuthController extends Controller
             }
         } catch (JWTException $e) {
             Log::error('Error creating token: ' . $e->getMessage());
-            
+
             return response()->json(['error' => 'Could not create token'], 500);
         }
 
@@ -34,7 +34,7 @@ class ApiAuthController extends Controller
     {
         JWTAuth::invalidate(JWTAuth::getToken());
 
-        return response()->json(['message' => 'Successfully logged out']);
+        return response()->json(['message' => 'Logout berhasil']);
     }
 
     public function getuser()
@@ -50,7 +50,7 @@ class ApiAuthController extends Controller
         ]);
     }
 
-    
+
 
     public function update(Request $request)
     {

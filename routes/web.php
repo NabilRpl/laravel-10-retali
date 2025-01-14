@@ -55,8 +55,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/tugaskonten', [kontenController::class, 'index'])->name('tugaskonten.index');
     Route::get('/tugaskonten/create', [kontenController::class, 'create'])->name('tugaskonten.create');
     Route::post('/tugaskonten', [kontenController::class, 'store'])->name('tugaskonten.store');
-    Route::delete('/konten/deleteFoto/{foto}', [kontenController::class, 'deleteFoto'])->name('konten.deleteFoto');
-    Route::delete('/konten/deleteVideo/{video}', [kontenController::class, 'deleteVideo'])->name('konten.deleteVideo');
 
     Route::get('/userkonten/{id}', [kontenController::class, 'userkonten'])->name('tugaskonten.userkonten');
     Route::get('/detailuserkonten/{id}', [kontenController::class, 'detailuserkonten'])->name('tugaskonten.detailuserkonten');

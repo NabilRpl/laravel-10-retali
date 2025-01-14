@@ -2,7 +2,7 @@
 @section('content')
 <div class="container mt-4">
     <h1 class="mb-4">Tugas</h1>
-    <a href="{{ route('tugaskonten.detailuserkonten') }}" class="btn btn-primary mb-4">
+    <a href="{{ route('tugaskonten.detailuserkonten', ['id' => $id]) }}" class="btn btn-primary mb-4">
         <i class="fas fa-arrow-left"></i> Kembali
     </a>
 
@@ -18,10 +18,6 @@
                         </a>
                         <div class="card-body">
                             <p class="card-text text-center">Foto Konten</p>
-                            <form action="{{ route('konten.deleteFoto', ['foto' => $foto]) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-block">Delete</button>
                             </form>
                         </div>
                     </div>
