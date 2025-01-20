@@ -11,18 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('jamaah', function (Blueprint $table) {
             $table->id();
+            $table->string('foto');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('phone');
-            $table->string('location');
-            $table->unsignedBigInteger('groups_id')->nullable();
+            $table->unsignedBigInteger('groups_id');
             $table->foreign('groups_id')->references('id')->on('groups');
-            $table->enum('role', ['admin', 'tourguide'])->default('tourguide');
-            $table->rememberToken();
+            $table->string('no_hp');
+            $table->string('alamat');
+            $table->string('jenis_kelamin');
+            $table->string('catatan_kesehatan');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('jamaah');
     }
 };

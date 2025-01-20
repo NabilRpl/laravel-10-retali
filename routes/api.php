@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApiAgendaController;
 use App\Http\Controllers\ApiAuthController;
+use App\Http\Controllers\ApiJamaahController;
 use App\Http\Controllers\ApiKloterController;
 use App\Http\Controllers\ApiKontenController;
 use App\Http\Controllers\ApiTableController;
@@ -39,6 +40,8 @@ Route::middleware([\App\Http\Middleware\authApi::class])->group(function () {
     
     Route::post('/datatable', [ApiTableController::class, 'store']);
     Route::get('/getalldatatable', [ApiTableController::class, 'allDataTable']);
+
+    Route::get('/jamaah', [ApiJamaahController::class, 'index']);
 });
 
 Route::get('/tugaskonten', [ApiKontenController::class, 'allKonten']);

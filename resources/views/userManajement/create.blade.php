@@ -22,7 +22,7 @@
     </div>
     <div class="form-group">
         <label for="group_id">Nama Kelompok</label>
-        <select class="form-control" id="group_id" name="group_id">
+        <select class="form-control" id="groups_id" name="groups_id">
             <option value="">Pilih Kelompok</option>
             @foreach ($groups as $group)
                 <option value="{{ $group->id }}" {{ old('group_id') == $group->id ? 'selected' : '' }}>

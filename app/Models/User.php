@@ -25,7 +25,7 @@ class User extends Authenticatable implements JWTSubject
         'phone',
         'location',
         'password',
-        'group_id'
+        'groups_id'
     ];
 
     /**
@@ -69,6 +69,6 @@ class User extends Authenticatable implements JWTSubject
 
     public function group()
     {
-        return $this->belongsTo(Group::class);
+        return $this->belongsTo(Group::class, 'groups_id');
     }
 }

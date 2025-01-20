@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\Hash;
 class UserManajementController extends Controller
 {
     public function index(){
-        $users = User::with('group')->get();
+        $users = User::with('group')->where('role',  'tourguide')->get();
+// return response()->json($users);
         return view('userManajement.index',
-        [ 'users' => User::where('role',  'tourguide')->get() ]);
+        [ 'users' => $users ]);
     }
 
     public function create(){
@@ -28,7 +29,7 @@ class UserManajementController extends Controller
             'phone' => 'required',
             'location' => 'required',
             'password' => 'required|confirmed',
-            'group_id' => 'nullable|exists:groups,id',
+            'groups_id' => 'nullable|exists:groups,id',
         ]);
 
 
@@ -39,7 +40,7 @@ class UserManajementController extends Controller
             'phone' => $request->phone,
             'location' => $request->location,
             'password' => Hash::make($request->password),
-            'group_id' => $request->group_id
+            'groups_id' => $request->groups_id
         ]);
 
         return redirect()->route('userManajement.index');
@@ -67,7 +68,7 @@ class UserManajementController extends Controller
             'phone' => 'required',
             'location' => 'required',
             'password' => 'nullable|confirmed',
-            'group_id' => 'nullable|exists:groups,id', // Tambahkan validasi group_id
+            'groups_id' => 'nullable|exists:groups,id', // Tambahkan validasi group_id
         ]);
 
         // Ambil user yang akan diupdate
@@ -78,7 +79,7 @@ class UserManajementController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->location = $request->location;
-        $user->group_id = $request->group_id; // Perbarui group_id
+        $user->groups_id = $request->groups_id; // Perbarui group_id
 
         // Update password jika disediakan
         if ($request->password) {

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\JamaahController;
+use App\Models\Jamaah;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TableController;
@@ -62,6 +64,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/datatable/{id}', [TableController::class, 'index'])->name('datatable.index');
 
     Route::resource('groups', GroupsController::class);
+
+    Route::resource('jamaah', JamaahController::class);
 
 
 });
